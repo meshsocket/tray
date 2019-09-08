@@ -204,6 +204,7 @@ static void tray_update(struct tray *tray) {
 static void tray_exit() { objc_msgSend(app, sel_registerName("terminate:"), app); }
 
 #elif defined(TRAY_WINAPI)
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #include <shellapi.h>
