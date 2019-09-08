@@ -241,7 +241,7 @@ static LRESULT CALLBACK _tray_wnd_proc(HWND hwnd, UINT msg, WPARAM wparam,
   case WM_COMMAND:
     if (wparam >= ID_TRAY_FIRST) {
       MENUITEMINFO item = {
-          .cbSize = sizeof(MENUITEMINFO), .fMask = MIIM_ID | MIIM_DATA,
+          sizeof(MENUITEMINFO), MIIM_ID | MIIM_DATA
       };
       if (GetMenuItemInfo(hmenu, wparam, FALSE, &item)) {
         struct tray_menu *menu = (struct tray_menu *)item.dwItemData;
